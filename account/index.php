@@ -12,7 +12,7 @@
     <label>Password:</label>
     <input type="password" name="password" placeholder="Enter your password" required>
     <button>Login</button>
-    <p>Create an account - <a href="#">Registration</a></p>
+    <p>Create an account - <a href="register.php">Registration</a></p>
 </form>
 </body>
 </html>
