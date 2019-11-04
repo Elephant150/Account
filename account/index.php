@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,13 +9,20 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<form action="" method="post">
+<form action="vendor/signin.php" method="post">
     <label>Login:</label>
-    <input type="text" name="login" placeholder="Enter your login" required>
+    <input type="text" name="username" placeholder="Enter your login" required>
     <label>Password:</label>
     <input type="password" name="password" placeholder="Enter your password" required>
-    <button>Login</button>
+    <button type="submit">Login</button>
     <p>Create an account - <a href="register.php">Registration</a></p>
+    <?php
+    //    ----------------------- message box
+    if ($_SESSION) {
+        echo '<p class="msg">' . $_SESSION['msg'] . '</p>';
+    }
+    unset($_SESSION['msg']);
+    ?>
 </form>
 </body>
 </html>

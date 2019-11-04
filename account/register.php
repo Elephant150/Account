@@ -1,6 +1,5 @@
 <?php
 session_start();
-//require_once "vendor/signup.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,9 +22,10 @@ session_start();
     <input type="password" name="password" placeholder="Enter your password" required>
     <label>Confirm the password:</label>
     <input type="password" name="password_confirm" placeholder="Confirm your password" required>
-    <button>Login</button>
+    <button type="submit">Login</button>
     <p>Do you have an account? - <a href="index.php">Login</a></p>
     <?php
+    //    ----------------------- message box
     if ($_SESSION){
         echo '<p class="msg">' . $_SESSION['msg'] . '</p>';
     }
