@@ -1,3 +1,7 @@
+<?php
+session_start();
+//require_once "vendor/signup.php";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,19 +12,25 @@
 <body>
 <form action="vendor/signup.php" method="post" enctype="multipart/form-data">
     <label>Full name:</label>
-    <input type="text" name="fullName" placeholder="Enter your full name" required>
+    <input type="text" name="full_name" placeholder="Enter your full name" >
     <label>Username:</label>
-    <input type="text" name="username" placeholder="Enter your username" required>
+    <input type="text" name="username" placeholder="Enter your username" >
     <label>Email:</label>
-    <input type="email" name="email" placeholder="Enter your email" required>
+    <input type="email" name="email" placeholder="Enter your email" >
     <label>Picture:</label>
     <input type="file" name="picture">
     <label>Password:</label>
     <input type="password" name="password" placeholder="Enter your password" required>
     <label>Confirm the password:</label>
-    <input type="password" name="passwordConfirm" placeholder="Confirm your password" required>
+    <input type="password" name="password_confirm" placeholder="Confirm your password" required>
     <button>Login</button>
     <p>Do you have an account? - <a href="index.php">Login</a></p>
+    <?php
+    if ($_SESSION){
+        echo '<p class="msg">' . $_SESSION['msg'] . '</p>';
+    }
+    unset($_SESSION['msg']);
+    ?>
 </form>
 </body>
 </html>
