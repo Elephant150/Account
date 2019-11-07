@@ -17,8 +17,8 @@ session_start();
     <button type="submit">Login</button>
     <p>Create an account - <a href="register.php">Registration</a></p>
     <?php
-    //    ----------------------- message box
-    if ($_SESSION) {
+//    ----------------- message box
+    if ($_SESSION){
         echo '<p class="msg">' . $_SESSION['msg'] . '</p>';
     }
     unset($_SESSION['msg']);
