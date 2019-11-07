@@ -14,7 +14,7 @@ if ($password === $password_confirm) {
 //    ----------------------- uploads a picture
     $path = '/uploads/' . time() . $_FILES['picture']['name'];
     if (!move_uploaded_file($_FILES['picture']['tmp_name'], '../' . $path)) {
-        $_SESSION['msg'] = 'Error loading image!';
+        $_SESSION['msge'] = 'Error loading image!';
         header('Location: ../register.php');
     }
 //    -----------------------
@@ -24,18 +24,18 @@ if ($password === $password_confirm) {
     $query->execute();
 
     if ($query->fetchColumn() > 0) {
-        $_SESSION['msg'] = 'This login is already busy!';
+        $_SESSION['msgl'] = 'This login is already busy!';
         header('Location: ../register.php');
     } else {
         $password = MD5($password);
         $ins = $dbh->exec("INSERT INTO `users` (`id`, `full_name`, `login`, `email`, `password`, `picture`) VALUES (NULL, '$full_name', '$username', '$email', '$password', '$path')");
 
-        $_SESSION['msg'] = 'You have successfully registered!';
+        $_SESSION['msgs'] = 'You have successfully registered!';
         header('Location: ../index.php');
     }
 //    -----------------------
 
 } else {
-    $_SESSION['msg'] = 'Passwords do not match!';
+    $_SESSION['msgp'] = 'Passwords do not match!';
     header('Location: ../register.php');
 }

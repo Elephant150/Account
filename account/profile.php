@@ -1,6 +1,8 @@
 <?php
 session_start();
-//require_once "vendor/signin.php";
+if (!isset($_SESSION['user'])){
+    header('Location: index.php');
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,11 +12,20 @@ session_start();
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<?//= $full_name; ?>
-<form>
-    <img src="<?= $_SESSION['user']['picture']; ?>" width="100" alt="">
-    <h2><?= $_SESSION['user']['full_name']; ?></h2>
-    <a href="#"><?= $_SESSION['user']['email']; ?></a>
-</form>
+
+<div class="info">
+<?php if (isset($_SESSION['user'])) {?>
+    <img src="<?= $_SESSION['picture'] ?>" width="300">
+    <h2><?= $_SESSION['user'] ?></h2>
+    <h3><?= $_SESSION['full_name'] ?></h3>
+    <a href="#"><?= $_SESSION['email'] ?></a>
+    <a href="vendor/logout.php" class="logout">Logout</a>
+<?php
+}else{
+    echo '';
+}
+    ?>
+
+</div>
 </body>
 </html>

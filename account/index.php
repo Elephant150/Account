@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (isset($_SESSION['user'])){
+    header('Location: profile.php');
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,7 +21,7 @@ session_start();
     <p>Create an account - <a href="register.php">Registration</a></p>
     <?php
 //    ----------------- message box
-    if ($_SESSION){
+    if (isset($_SESSION['msg'])){
         echo '<p class="msg">' . $_SESSION['msg'] . '</p>';
     }
     unset($_SESSION['msg']);
