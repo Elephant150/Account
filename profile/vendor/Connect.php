@@ -5,7 +5,7 @@ class Connect
 {
     private $host ;
     private $user;
-    private $password = '';
+    private $password;
     private $db;
     private $charset;
     private $opt;
